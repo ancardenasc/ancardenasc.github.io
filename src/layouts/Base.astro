@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Portafolio de Nicolas Cardenas Colorado — UX Engineering y Accesibilidad.' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Nicolas Cardenas</title>
+    <meta name="description" content={description} />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="container">
+      <nav aria-label="Principal">
+        <a href="/">Nicolas Cardenas</a>
+        <ul style="display:flex; gap:1rem; list-style:none; padding:0;">
+          <li><a href="/proyectos">Proyectos</a></li>
+          <li><a href="/skills">Skills</a></li>
+          <li><a href="/sobre-mi">Sobre mí</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="contenido" class="container">
+      <slot />
+    </main>
+    <footer class="container">
+      <p><small>© 2026 Nicolas Cardenas Colorado. Sitio construido con Astro, HTML semántico y accesibilidad AA como requisito, no como añadido.</small></p>
+    </footer>
+  </body>
+</html>
